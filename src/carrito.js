@@ -1,11 +1,14 @@
-export class Carrito {
+const CANTIDAD_MINIMA = 1
+const CANTIDAD_MAXIMA = 50
+
+export class Carrito { 
   constructor (inventario) {
     this.inventario = inventario
     this.productos = []
   }
 
   agregarProducto (producto, cantidad) {
-    if (!Number.isInteger(cantidad) || cantidad < 1 || cantidad > 50) {
+    if (!Number.isInteger(cantidad) || cantidad < CANTIDAD_MINIMA || cantidad > CANTIDAD_MAXIMA) {
       throw new Error('La cantidad debe estar entre 1 y 50 unidades')
     }
 
